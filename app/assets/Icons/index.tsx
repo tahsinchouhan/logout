@@ -1,11 +1,4 @@
-import {
-  ClipPath,
-  Defs,
-  G,
-  Path,
-  Rect,
-  Svg
-} from 'react-native-svg';
+import { ClipPath, Defs, G, Path, Rect, Svg } from 'react-native-svg';
 
 export const LocationSVG = () => {
   return (
@@ -288,25 +281,27 @@ export const ChatSVG = ({fill}) => {
   );
 };
 
-// export const CreateHangoutSVG = ({fill}) => {
-//   return (
-//     <Svg width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-//     <G filter="url(#filter0_d_1_2333)">
-//     <Path fill-rule="evenodd" clip-rule="evenodd" d="M43.5 58.5C56.2025 58.5 66.5 48.2025 66.5 35.5C66.5 22.7975 56.2025 12.5 43.5 12.5C30.7975 12.5 20.5 22.7975 20.5 35.5C20.5 48.2025 30.7975 58.5 43.5 58.5Z" fill="#1B8DF7"/>
-//     </G>
-//     <Path d="M44.0003 45.3337C43.2639 45.3337 42.667 44.7367 42.667 44.0003V41.3337C42.667 39.1245 40.8761 37.3337 38.667 37.3337H36.0003C35.2639 37.3337 34.667 36.7367 34.667 36.0003C34.667 35.2639 35.2639 34.667 36.0003 34.667H38.667C40.8761 34.667 42.667 32.8761 42.667 30.667V28.0003C42.667 27.2639 43.2639 26.667 44.0003 26.667C44.7367 26.667 45.3337 27.2639 45.3337 28.0003V30.667C45.3337 32.8761 47.1245 34.667 49.3337 34.667H52.0003C52.7367 34.667 53.3337 35.2639 53.3337 36.0003C53.3337 36.7367 52.7367 37.3337 52.0003 37.3337H49.3337C47.1245 37.3337 45.3337 39.1245 45.3337 41.3337V44.0003C45.3337 44.7367 44.7367 45.3337 44.0003 45.3337Z" fill="black"/>
-//     <Defs>
-//     <filter id="filter0_d_1_2333" x="0.5" y="0.5" width="86" height="86" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-//     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-//     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-//     <feOffset dy="8"/>
-//     <feGaussianBlur stdDeviation="10"/>
-//     <feColorMatrix type="matrix" values="0 0 0 0 0.290196 0 0 0 0 0.262745 0 0 0 0 0.92549 0 0 0 0.25 0"/>
-//     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2333"/>
-//     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2333" result="shape"/>
-//     </filter>
-//     </Defs>
-//     </Svg>
-    
-//   );
-// };
+export const CreateHangoutSVG = ({fill}) => {
+  return (
+    <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={87}
+    height={87}
+    fill="none"
+  >
+    <G filter="url(#a)">
+      <Path
+        fill="#1B8DF7"
+        fillRule="evenodd"
+        d="M43.5 58.5c12.703 0 23-10.297 23-23s-10.297-23-23-23-23 10.297-23 23 10.297 23 23 23Z"
+        clipRule="evenodd"
+      />
+    </G>
+    <Path
+      fill="#000"
+      d="M44 45.334A1.333 1.333 0 0 1 42.667 44v-2.666a4 4 0 0 0-4-4H36a1.333 1.333 0 0 1 0-2.667h2.667a4 4 0 0 0 4-4V28a1.333 1.333 0 1 1 2.667 0v2.667a4 4 0 0 0 4 4H52a1.333 1.333 0 1 1 0 2.667h-2.666a4 4 0 0 0-4 4V44c0 .737-.597 1.334-1.334 1.334Z"
+    />
+    <Defs></Defs>
+  </Svg>
+  );
+};

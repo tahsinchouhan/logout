@@ -12,11 +12,13 @@ const RecommendedHangOutsScreen: React.FC = () => {
     <View className="bg-white h-full px-4">
       <View className="flex-row items-center  py-6 mb-2">
         <View className="mr-3">
-            <Pressable onPress={() => navigation.goBack()}>
-          <LeftArrowSVG/>
-            </Pressable>
+          <Pressable onPress={() => navigation.goBack()}>
+            <LeftArrowSVG />
+          </Pressable>
         </View>
-        <Text className="text-22px font-bold text-black">Recommeded hangouts </Text>
+        <Text className="text-[22px] font-bold text-black">
+          Recommeded hangouts{' '}
+        </Text>
         <Text className="text-sm font-bold"></Text>
       </View>
       <FlatList

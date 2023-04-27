@@ -38,7 +38,7 @@ const FirstOnBoarding = ({
             SwiperRef={SwiperRef}
           />
         </View>
-        <NavigationButton text="Get Started!" screen="Login" />
+        <NavigationButton text="Get Started!" screen="FourthOnBoarding" root="OnboardingScreens" />
       </View>
     </View>
   );

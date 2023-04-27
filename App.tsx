@@ -11,7 +11,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { View } from 'react-native';
+import CreateHangoutDrawer from './app/components/HomeScreen/CreateHangoutDrawer';
 import TabBar from './app/components/tabBar';
+import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualHangout';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
@@ -48,7 +50,6 @@ function OnboardingScreens() {
     </SwipeTab.Navigator>
   );
 }
-
 function LoginScreens() {
   return (
     <Stack.Navigator
@@ -79,7 +80,6 @@ function LoginScreens() {
     </Stack.Navigator>
   );
 }
-
 function SignUpScreens() {
   return (
     <Stack.Navigator
@@ -108,14 +108,28 @@ function HomeTabs() {
         name="RecommendedHangOutsScreen"
         component={RecommendedHangOutsScreen}
       />
+      <Tab.Screen name="PlaceholderScreen" component={Chats} />
       <Tab.Screen name="MyHangoutsScreen" component={MyHangoutsScreen} />
-      <Tab.Screen name="Chats" component={Chats} />
+      <Tab.Screen name="Chats" component={CreateHangoutDrawer} />
+
       {/* <Tab.Screen name="CreateHangoutScreen" component={CreateHangoutScreen} /> */}
 
     </Tab.Navigator>
   );
 }
-
+function CreateHangoutScreens() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen
+        name="CreateCasualHangout"
+        component={CreateCasualHangout}
+      />
+    </Stack.Navigator>
+  );
+}
 function App(): JSX.Element {
   return (
     <NavigationContainer>
@@ -151,6 +165,14 @@ function App(): JSX.Element {
           }}
           component={HomeTabs}
         />
+        <Stack.Screen
+          name="CreateHangoutScreens"
+          options={{
+            headerShown: false,
+          }}
+          component={CreateHangoutScreens}
+        />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -16,7 +16,7 @@ const navigation = useNavigation();
       </View>
       <View>
         <Text className="text-black font-bold text-base mb-2">
-          Select Category{' '}
+          Select Category
         </Text>
         <View className="flex flex-wrap flex-row w-full ">
           <View className="px-4 py-2 flex justify-center items-center border border-black rounded-[100px]  mr-4 mb-4">

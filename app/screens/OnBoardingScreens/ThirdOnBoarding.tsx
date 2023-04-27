@@ -38,7 +38,7 @@ const ThirdOnBoarding = ({
             SwiperRef={SwiperRef}
           />
         </View>
-        <NavigationButton text="Get Started!" screen="Login" />
+        <NavigationButton text="Get Started!" screen="Login" screen="FourthOnBoarding" root="OnboardingScreens"/>
       </View>
     </View>
   );

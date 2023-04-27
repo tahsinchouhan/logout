@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { Dimensions, Pressable, StyleSheet, View } from 'react-native';
+import CreateHangoutDrawer from './HomeScreen/CreateHangoutDrawer';
 import NavigationIcon from './NavigationIcon';
 
 
@@ -9,15 +10,15 @@ const {width} = Dimensions.get('window')
 
 const TabBar = ({ state, descriptors, navigation}: any) =>{
   return (
-    <View style={styles.mainContainer}>
+    <View style={styles.mainContainer} >
       {state.routes.map((route: any , index: number) => {
-        // if(route.name =="PlaceholderScreen"){
-        //   return (
-        //     <View key={index} style={styles.mainItemContainer}>
-        //       <SelectWheel />
-        //     </View>  
-        //   );
-        // }
+        if(route.name =="PlaceholderScreen"){
+          return (
+            <View key={index} className="" >
+              <CreateHangoutDrawer/>
+            </View>  
+          );
+        }
         
         const { options } = descriptors[route.key];
         const label =
@@ -41,12 +42,12 @@ const TabBar = ({ state, descriptors, navigation}: any) =>{
         };
 
         return (
-          <View key = {index} style = {[styles.mainItemContainer, {borderRightWidth: label=="notes"? 3:0}]}>
+          <View key = {index} style = {[styles.mainItemContainer]}>
             <Pressable
               onPress = {onPress}
               // style = {{backgroundColor: isFocused?"#030D16": "#182028", borderRadius: 20, }}
               >
-              <View style = {{justifyContent: 'center', alignItems: 'center', flex: 1, padding: 15}}>
+              <View style = {{justifyContent: 'center', alignItems: 'center', flex: 1}}>
                 <NavigationIcon route={label} isFocused={isFocused}/>
               </View>
             </Pressable>
@@ -64,16 +65,14 @@ const styles = StyleSheet.create({
     bottom: 25,
     backgroundColor: "#000",
     borderRadius: 50,
-    marginHorizontal: width*0.08
+    marginHorizontal: width*0.08,
+    paddingVertical: 6,
   },
   mainItemContainer: {
     flex: 1,
     justifyContent: 'center', 
     alignItems: 'center', 
-    marginVertical: 5,
-    borderRadius: 1, 
-    borderColor: "#333B42"
-  }, 
+    height: 70,  }, 
 })
 
 
