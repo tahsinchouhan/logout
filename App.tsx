@@ -11,7 +11,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { View } from 'react-native';
+import TabBar from './app/components/tabBar';
 import Home from './app/screens/Home';
+import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
 import RecommendedHangOutsScreen from './app/screens/Home/RecommendedHangoutScreen';
 import EnterOtpScreen from './app/screens/Login/EnterOtpScreen';
@@ -99,7 +101,7 @@ function HomeTabs() {
       }}
       
       initialRouteName={'Home'}
-      // tabBar={props => <TabBar {...props} />}
+      tabBar={props => <TabBar {...props} />}
       >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen
@@ -107,6 +109,9 @@ function HomeTabs() {
         component={RecommendedHangOutsScreen}
       />
       <Tab.Screen name="MyHangoutsScreen" component={MyHangoutsScreen} />
+      <Tab.Screen name="Chats" component={Chats} />
+      {/* <Tab.Screen name="CreateHangoutScreen" component={CreateHangoutScreen} /> */}
+
     </Tab.Navigator>
   );
 }
@@ -118,13 +123,6 @@ function App(): JSX.Element {
         screenOptions={{
           headerShadowVisible: false,
         }}>
-        <Stack.Screen
-          name="HomeTabs"
-          options={{
-            headerShown: false,
-          }}
-          component={HomeTabs}
-        />
         <Stack.Screen
           name="OnboardingScreens"
           options={{
@@ -145,6 +143,13 @@ function App(): JSX.Element {
             headerShown: false,
           }}
           component={SignUpScreens}
+        />
+        <Stack.Screen
+          name="HomeTabs"
+          options={{
+            headerShown: false,
+          }}
+          component={HomeTabs}
         />
       </Stack.Navigator>
     </NavigationContainer>

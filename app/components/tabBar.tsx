@@ -1,22 +1,25 @@
+
 import React from 'react';
 
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Dimensions, Pressable, StyleSheet, View } from 'react-native';
+import NavigationIcon from './NavigationIcon';
 
-// import { SelectWheel } from '.';
 
-const {width} = Dimensions.get('window');
+const {width} = Dimensions.get('window')
 
-const TabBar = ({state, descriptors, navigation}: any) => {
+const TabBar = ({ state, descriptors, navigation}: any) =>{
   return (
-    <View style={{ flexDirection: 'row' }}>
-      {state.routes.map((route, index) => {
-        const {options} = descriptors[route.key];
+    <View style={styles.mainContainer}>
+      {state.routes.map((route: any , index: number) => {
+        // if(route.name =="PlaceholderScreen"){
+        //   return (
+        //     <View key={index} style={styles.mainItemContainer}>
+        //       <SelectWheel />
+        //     </View>  
+        //   );
+        // }
+        
+        const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
@@ -37,50 +40,41 @@ const TabBar = ({state, descriptors, navigation}: any) => {
           }
         };
 
-        const onLongPress = () => {
-          navigation.emit({
-            type: 'tabLongPress',
-            target: route.key,
-          });
-        };
-
         return (
-          <TouchableOpacity
-            accessibilityRole="button"
-            accessibilityState={isFocused ? {selected: true} : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={{flex: 1}}>
-            <Text style={{color: isFocused ? '#673ab7' : '#222'}}>{label}</Text>
-          </TouchableOpacity>
+          <View key = {index} style = {[styles.mainItemContainer, {borderRightWidth: label=="notes"? 3:0}]}>
+            <Pressable
+              onPress = {onPress}
+              // style = {{backgroundColor: isFocused?"#030D16": "#182028", borderRadius: 20, }}
+              >
+              <View style = {{justifyContent: 'center', alignItems: 'center', flex: 1, padding: 15}}>
+                <NavigationIcon route={label} isFocused={isFocused}/>
+              </View>
+            </Pressable>
+          </View>
         );
       })}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     position: 'absolute',
     bottom: 25,
-    backgroundColor: '#182028',
-    borderRadius: 25,
-    marginHorizontal: width * 0.1,
-    borderWidth: 3,
-    borderColor: 'red',
-    height: 30,
+    backgroundColor: "#000",
+    borderRadius: 50,
+    marginHorizontal: width*0.08
   },
   mainItemContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 10,
-    borderRadius: 1,
-    borderColor: '#333B42',
-  },
-});
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginVertical: 5,
+    borderRadius: 1, 
+    borderColor: "#333B42"
+  }, 
+})
 
-export default TabBar;
+
+export default TabBar; 
