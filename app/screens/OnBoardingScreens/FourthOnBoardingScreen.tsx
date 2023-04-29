@@ -12,7 +12,7 @@ const FourthOnBoardingScreen = () => {
           className="h-full w-full"></ImageBackground>
       </View>
       <View className="h-[50%] py-8 px-4">
-        <View className="mb-5">
+        <View className="mb-5 -mx-4">
           <NavigationButton text="Sign up" screen="SignUpScreen" root="SignUpScreens" />
         </View>
         <View className="mb-5">

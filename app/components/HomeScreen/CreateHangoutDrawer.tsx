@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import GestureRecognizer from 'react-native-swipe-gestures';
+import { CreateHangoutSVG } from '../../assets/Icons';
 const CreateHangoutDrawer = () => {
   const navigation = useNavigation();
 
@@ -31,19 +32,21 @@ const CreateHangoutDrawer = () => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={handleOpenBottomSheet}
-        className=" flex flex-row text-center justify-center items-center ">
-        <Image
+        className=" flex flex-row text-center justify-center items-center">
+        {/* <Image
           source={require('../../assets/Icons/plus.png')}
           style={{height: 70, width: 70}}
-        />
+        /> */}
+        <CreateHangoutSVG />
       </TouchableOpacity>
       <GestureRecognizer
-        style={{flex: 1}}
-        //   onSwipeUp={ () => this.setModalVisible(true) }
+        style={{
+          flex: isBottomSheetOpen ? 1 : 0, 
+        }}
         onSwipeDown={() => {
           setIsBottomSheetOpen(false);
         }}
-        className="border border-green-500">
+        className="">
         <Modal
           animationType="slide"
           transparent={true}

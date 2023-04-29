@@ -14,6 +14,8 @@ import { View } from 'react-native';
 import CreateHangoutDrawer from './app/components/HomeScreen/CreateHangoutDrawer';
 import TabBar from './app/components/tabBar';
 import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualHangout';
+import CreateCasualHangoutSecond from './app/screens/CreateHangoutScreen/CreateCasualHangoutSecond';
+import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
@@ -99,10 +101,8 @@ function HomeTabs() {
         headerShown: false,
         headerShadowVisible: false,
       }}
-      
       initialRouteName={'Home'}
-      tabBar={props => <TabBar {...props} />}
-      >
+      tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen
         name="RecommendedHangOutsScreen"
@@ -113,7 +113,6 @@ function HomeTabs() {
       <Tab.Screen name="Chats" component={CreateHangoutDrawer} />
 
       {/* <Tab.Screen name="CreateHangoutScreen" component={CreateHangoutScreen} /> */}
-
     </Tab.Navigator>
   );
 }
@@ -127,6 +126,11 @@ function CreateHangoutScreens() {
         name="CreateCasualHangout"
         component={CreateCasualHangout}
       />
+      <Stack.Screen name="HangoutLocation" component={HangoutLocation} />
+      <Stack.Screen
+        name="CreateCasualHangoutSecond"
+        component={CreateCasualHangoutSecond}
+      />
     </Stack.Navigator>
   );
 }
@@ -137,6 +141,13 @@ function App(): JSX.Element {
         screenOptions={{
           headerShadowVisible: false,
         }}>
+        <Stack.Screen
+          name="HomeTabs"
+          options={{
+            headerShown: false,
+          }}
+          component={HomeTabs}
+        />
         <Stack.Screen
           name="OnboardingScreens"
           options={{
@@ -158,13 +169,13 @@ function App(): JSX.Element {
           }}
           component={SignUpScreens}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="HomeTabs"
           options={{
             headerShown: false,
           }}
           component={HomeTabs}
-        />
+        /> */}
         <Stack.Screen
           name="CreateHangoutScreens"
           options={{
@@ -172,7 +183,6 @@ function App(): JSX.Element {
           }}
           component={CreateHangoutScreens}
         />
-        
       </Stack.Navigator>
     </NavigationContainer>
   );

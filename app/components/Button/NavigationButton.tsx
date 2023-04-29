@@ -7,7 +7,7 @@ const NavigationButton = ({text, screen,root}) => {
   const navigation = useNavigation();
   return (
     <Pressable onPress={() => navigation.navigate(root, {screen: screen})}>
-      <View className="bg-black rounded-3xl flex justify-center items-center w-[90vw] h-12 mx-auto">
+      <View className="bg-black rounded-3xl flex justify-center items-center w-[90%] h-12 mx-auto">
         <Text className="text-white font-bold text-sm">{text}</Text>
       </View>
     </Pressable>
