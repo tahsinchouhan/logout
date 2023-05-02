@@ -13,9 +13,13 @@ import React from 'react';
 import { View } from 'react-native';
 import CreateHangoutDrawer from './app/components/HomeScreen/CreateHangoutDrawer';
 import TabBar from './app/components/tabBar';
+import AddBankAccountScreen from './app/screens/CreateHangoutScreen/AddBankAccountScreen';
 import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualHangout';
 import CreateCasualHangoutSecond from './app/screens/CreateHangoutScreen/CreateCasualHangoutSecond';
 import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
+import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFirstScreen';
+import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
+import ProfessionalHangoutThirdScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutThirdScreen';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
@@ -131,6 +135,10 @@ function CreateHangoutScreens() {
         name="CreateCasualHangoutSecond"
         component={CreateCasualHangoutSecond}
       />
+      <Stack.Screen name="AddBankAccountScreen" component={AddBankAccountScreen} />
+      <Stack.Screen name="ProfessionalHangoutFirstScreen" component={ProfessionalHangoutFirstScreen} />
+      <Stack.Screen name="ProfessionalHangoutSecondScreen" component={ProfessionalHangoutSecondScreen} />
+      <Stack.Screen name="ProfessionalHangoutThirdScreen" component={ProfessionalHangoutThirdScreen} />
     </Stack.Navigator>
   );
 }

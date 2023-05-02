@@ -135,6 +135,11 @@ const HangoutLocation = () => {
               <View className="-mx-4">
               <NavigationButton screen="CreateCasualHangoutSecond" text="Add Address" root="CreateHangoutScreens" />
               </View>
+              <View>
+                <Text className="text-xs text-black text-center mt-2">
+                Address will be shared with confired participants
+                </Text>
+              </View>
             </View>
           </View>
         </Modal>

@@ -79,7 +79,7 @@ const CreateHangoutDrawer = () => {
                     </View>
                   </Pressable>
                   <Pressable onPress={() => {
-                      navigation.navigate('CreateProfessionalHangout');
+                       navigation.navigate( "CreateHangoutScreens",{screen:'AddBankAccountScreen'});
                       handleCloseBottomSheet();
                     }}>
                     <View>
