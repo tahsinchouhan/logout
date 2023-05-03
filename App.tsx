@@ -11,8 +11,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { View } from 'react-native';
-import CreateHangoutDrawer from './app/components/HomeScreen/CreateHangoutDrawer';
 import TabBar from './app/components/tabBar';
+import MessagesScreen from './app/screens/ChatScreens/MessagesScreen';
 import AddBankAccountScreen from './app/screens/CreateHangoutScreen/AddBankAccountScreen';
 import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualHangout';
 import CreateCasualHangoutSecond from './app/screens/CreateHangoutScreen/CreateCasualHangoutSecond';
@@ -112,11 +112,12 @@ function HomeTabs() {
         name="RecommendedHangOutsScreen"
         component={RecommendedHangOutsScreen}
       />
-      <Tab.Screen name="PlaceholderScreen" component={Chats} />
+      <Tab.Screen
+        name="Drawer"
+        component={Chats}
+      />
       <Tab.Screen name="MyHangoutsScreen" component={MyHangoutsScreen} />
-      <Tab.Screen name="Chats" component={CreateHangoutDrawer} />
-
-      {/* <Tab.Screen name="CreateHangoutScreen" component={CreateHangoutScreen} /> */}
+      <Tab.Screen name="Chats" component={MessagesScreen} />
     </Tab.Navigator>
   );
 }
@@ -135,10 +136,22 @@ function CreateHangoutScreens() {
         name="CreateCasualHangoutSecond"
         component={CreateCasualHangoutSecond}
       />
-      <Stack.Screen name="AddBankAccountScreen" component={AddBankAccountScreen} />
-      <Stack.Screen name="ProfessionalHangoutFirstScreen" component={ProfessionalHangoutFirstScreen} />
-      <Stack.Screen name="ProfessionalHangoutSecondScreen" component={ProfessionalHangoutSecondScreen} />
-      <Stack.Screen name="ProfessionalHangoutThirdScreen" component={ProfessionalHangoutThirdScreen} />
+      <Stack.Screen
+        name="AddBankAccountScreen"
+        component={AddBankAccountScreen}
+      />
+      <Stack.Screen
+        name="ProfessionalHangoutFirstScreen"
+        component={ProfessionalHangoutFirstScreen}
+      />
+      <Stack.Screen
+        name="ProfessionalHangoutSecondScreen"
+        component={ProfessionalHangoutSecondScreen}
+      />
+      <Stack.Screen
+        name="ProfessionalHangoutThirdScreen"
+        component={ProfessionalHangoutThirdScreen}
+      />
     </Stack.Navigator>
   );
 }

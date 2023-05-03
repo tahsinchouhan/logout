@@ -12,7 +12,7 @@ const TabBar = ({ state, descriptors, navigation}: any) =>{
   return (
     <View style={styles.mainContainer} >
       {state.routes.map((route: any , index: number) => {
-        if(route.name =="PlaceholderScreen"){
+        if(route.name =="Drawer"){
           return (
             <View key={index} className="" >
               <CreateHangoutDrawer/>
