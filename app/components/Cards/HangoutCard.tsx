@@ -5,7 +5,7 @@ import { Avatars, Circle } from '../Avatars';
 
 const HangoutCard: React.FC = () => {
   return (
-    <View className="mb-4 rounded-2xl w-full h-40 flex flex-row border-[#BDBDBD] border">
+    <View className="mb-4 bg-white rounded-2xl w-full h-40 flex flex-row border-[#BDBDBD] border">
       <Image
         className="rounded-l-2xl  w-36 h-full"
         source={require('../../assets/hangout1.png')}

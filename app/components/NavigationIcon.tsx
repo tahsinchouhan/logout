@@ -3,18 +3,17 @@ import { View } from 'react-native';
 import {
   ChatSVG,
   HomeSVG,
-  LikedSVG,
-  ProfileSVG
+  LikedSVG
 } from '../assets/Icons';
 const NavigationIcon = ({route, isFocused}) => {
   return (
     <View>
       {/* show icons for all routee */}
       {route == 'Home' && <HomeSVG fill={isFocused ? '#fff' : '#A6A6A6'} />}
-      {route == 'MyHangoutsScreen' && (
+      {/* {route == 'dashboard' && (
         <ProfileSVG fill={isFocused ? '#fff' : '#A6A6A6'} />
-      )}
-      {route == 'RecommendedHangOutsScreen' && (
+      )} */}
+      {route == 'MyHangoutsScreen' && (
         <LikedSVG fill={isFocused ? '#fff' : '#A6A6A6'} />
       )}
       {route == 'Chats' && <ChatSVG fill={isFocused ? '#fff' : '#A6A6A6'} />}

@@ -20,10 +20,11 @@ import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
 import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFirstScreen';
 import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
 import ProfessionalHangoutThirdScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutThirdScreen';
+import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
+import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
-import RecommendedHangOutsScreen from './app/screens/Home/RecommendedHangoutScreen';
 import EnterOtpScreen from './app/screens/Login/EnterOtpScreen';
 import LoginScreen from './app/screens/Login/LoginScreen';
 import SendOtpScreen from './app/screens/Login/SendOtpScreen';
@@ -108,15 +109,15 @@ function HomeTabs() {
       initialRouteName={'Home'}
       tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen
-        name="RecommendedHangOutsScreen"
-        component={RecommendedHangOutsScreen}
-      />
-      <Tab.Screen
-        name="Drawer"
-        component={Chats}
-      />
       <Tab.Screen name="MyHangoutsScreen" component={MyHangoutsScreen} />
+      <Tab.Screen name="Drawer" component={Chats} />
+      <Tab.Screen
+        options={{
+          tabBarStyle: {display: 'none'},
+        }}
+        name="dashboard"
+        component={MyHangoutsScreen}
+      />
       <Tab.Screen name="Chats" component={MessagesScreen} />
     </Tab.Navigator>
   );
@@ -151,6 +152,26 @@ function CreateHangoutScreens() {
       <Stack.Screen
         name="ProfessionalHangoutThirdScreen"
         component={ProfessionalHangoutThirdScreen}
+      />
+    </Stack.Navigator>
+  );
+}
+function DashboardScreens() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MyDashboard"
+        component={MyDashboard}
+        options={{
+          headerTitle: 'My Dashboard',
+        }}
+      />
+      <Stack.Screen
+        name="UserHangoutTickets"
+        component={UserHangoutTickets}
+        options={{
+          headerTitle: 'My Hangout tickets',
+        }}
       />
     </Stack.Navigator>
   );
@@ -203,6 +224,13 @@ function App(): JSX.Element {
             headerShown: false,
           }}
           component={CreateHangoutScreens}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="DashboardScreens"
+          component={DashboardScreens}
         />
       </Stack.Navigator>
     </NavigationContainer>

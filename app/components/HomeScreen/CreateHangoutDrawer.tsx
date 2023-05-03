@@ -33,10 +33,6 @@ const CreateHangoutDrawer = () => {
       <TouchableOpacity
         onPress={handleOpenBottomSheet}
         className=" flex flex-row text-center justify-center items-center">
-        {/* <Image
-          source={require('../../assets/Icons/plus.png')}
-          style={{height: 70, width: 70}}
-        /> */}
         <CreateHangoutSVG />
       </TouchableOpacity>
       <GestureRecognizer
