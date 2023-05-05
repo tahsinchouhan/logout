@@ -64,8 +64,8 @@ const MyDashboard = () => {
         <MyDashboardCard name="Hangout tickets" icon="ticket" root="DashboardScreens" screen="UserHangoutTickets" />
         <MyDashboardCard name="Friends" icon="friends" root="DashboardScreens" screen="UserHangoutTickets" />
         <MyDashboardCard name="Settings" icon="settings" root="DashboardScreens" screen="UserHangoutTickets" />
-        <MyDashboardCard name="About" icon="about" root="DashboardScreens" screen="UserHangoutTickets" />
-        <MyDashboardCard name="FAQ" icon="faq" root="DashboardScreens" screen="UserHangoutTickets" />
+        <MyDashboardCard name="About" icon="about" root="DashboardScreens" screen="AboutScreen" />
+        <MyDashboardCard name="FAQ" icon="faq" root="DashboardScreens" screen="FaqScreen" />
         <MyDashboardCard name="Help & Support" icon="support" root="DashboardScreens" screen="UserHangoutTickets" />
       </View>
     </View>

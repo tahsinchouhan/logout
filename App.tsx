@@ -20,6 +20,8 @@ import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
 import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFirstScreen';
 import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
 import ProfessionalHangoutThirdScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutThirdScreen';
+import AboutScreen from './app/screens/DashboardScreens/AboutScreen';
+import FaqScreen from './app/screens/DashboardScreens/FaqScreen';
 import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
 import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
 import Home from './app/screens/Home';
@@ -158,7 +160,10 @@ function CreateHangoutScreens() {
 }
 function DashboardScreens() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        animation: 'slide_from_right',
+      }}>
       <Stack.Screen
         name="MyDashboard"
         component={MyDashboard}
@@ -171,6 +176,20 @@ function DashboardScreens() {
         component={UserHangoutTickets}
         options={{
           headerTitle: 'My Hangout tickets',
+        }}
+      />
+      <Stack.Screen
+        name="AboutScreen"
+        component={AboutScreen}
+        options={{
+          headerTitle: 'About',
+        }}
+      />
+      <Stack.Screen
+        name="FaqScreen"
+        component={FaqScreen}
+        options={{
+          headerTitle: 'FAQ',
         }}
       />
     </Stack.Navigator>
@@ -228,6 +247,7 @@ function App(): JSX.Element {
         <Stack.Screen
           options={{
             headerShown: false,
+            animation: 'slide_from_right',
           }}
           name="DashboardScreens"
           component={DashboardScreens}
