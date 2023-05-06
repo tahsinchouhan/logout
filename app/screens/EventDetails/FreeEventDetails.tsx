@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import {
   CalanderSVG,
   FreeEntrySVG,
@@ -10,6 +11,8 @@ import {
 import { Avatars } from '../../components/Avatars';
 import EventDetailsTabs from '../../components/EventDetailsScreen/EventDetailsTabs';
 const FreeEventDetails = () => {
+  const navigation = useNavigation();
+
   const userImages = [
     require('../../assets/images/user1.png'),
     require('../../assets/images/user2.png'),
@@ -114,11 +117,15 @@ const FreeEventDetails = () => {
           <Text className="text-[#27AE60] text-lg font-semibold">Free</Text>
           <Text className="font-medium text-primarygray">20 Seats Left</Text>
         </View>
-        <View className="w-[40%] bg-black rounded-[100px] h-12 flex items-center justify-center">
-          <Text className="font-bold text-white">
-          Request Invite
-          </Text>
-        </View>
+        <Pressable
+          onPress={() => {
+            navigation.navigate('EventDetailsScreens', {
+              screen: 'PaidEventDetails',
+            });
+          }}
+          className="w-[40%] bg-black rounded-[100px] h-12 flex items-center justify-center">
+          <Text className="font-bold text-white">Request Invite</Text>
+        </Pressable>
       </View>
     </View>
   );

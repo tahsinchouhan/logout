@@ -27,6 +27,7 @@ import FriendsScreen from './app/screens/DashboardScreens/FriendsScreen';
 import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
 import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
 import FreeEventDetails from './app/screens/EventDetails/FreeEventDetails';
+import PaidEventDetails from './app/screens/EventDetails/PaidEventDetails';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
@@ -221,6 +222,7 @@ function EventDetailsScreens() {
         headerShown: false,
       }}>
       <Stack.Screen name="FreeEventDetails" component={FreeEventDetails} />
+      <Stack.Screen name="PaidEventDetails" component={PaidEventDetails} />
     </Stack.Navigator>
   );
 }
