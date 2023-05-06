@@ -16,19 +16,24 @@ type AvatarsProps = {
   className?: string;
   radius?: number;
   users: number[] | string[];
+  size?: number;
 };
 
-export const Avatars: React.FC = ({className, users}: AvatarsProps) => {
+export const Avatars: React.FC = ({className, users, size}: AvatarsProps) => {
   return (
     <View className={`flex-row ${className}`}>
       {users.map((user, index) => (
         <View className={`-ml-1.5`} key={index}>
-          <Circle>
+          <View className="rounded-full bg-white border-[#cccccc] border-[1.5px] w-auto h-auto">
             <Image
-              source={require('../assets/hangout1.png')}
-              className="w-full h-full rounded-full"
+              source={user}
+              className=" rounded-full"
+              style={{
+                width: size || 20,
+                height: size || 20,
+              }}
             />
-          </Circle>
+          </View>
         </View>
       ))}
     </View>

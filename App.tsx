@@ -26,6 +26,7 @@ import FaqScreen from './app/screens/DashboardScreens/FaqScreen';
 import FriendsScreen from './app/screens/DashboardScreens/FriendsScreen';
 import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
 import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
+import FreeEventDetails from './app/screens/EventDetails/FreeEventDetails';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
@@ -213,6 +214,17 @@ function DashboardScreens() {
     </Stack.Navigator>
   );
 }
+function EventDetailsScreens() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="FreeEventDetails" component={FreeEventDetails} />
+    </Stack.Navigator>
+  );
+}
+
 function App(): JSX.Element {
   return (
     <NavigationContainer>
@@ -269,6 +281,13 @@ function App(): JSX.Element {
           }}
           name="DashboardScreens"
           component={DashboardScreens}
+        />
+        <Stack.Screen
+          name="EventDetailsScreens"
+          options={{
+            headerShown: false,
+          }}
+          component={EventDetailsScreens}
         />
       </Stack.Navigator>
     </NavigationContainer>

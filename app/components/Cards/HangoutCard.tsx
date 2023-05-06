@@ -4,6 +4,12 @@ import { LocationSVG, StarSvg } from '../../assets/Icons';
 import { Avatars, Circle } from '../Avatars';
 
 const HangoutCard: React.FC = () => {
+  const userImages = [
+    require('../../assets/images/user1.png'),
+    require('../../assets/images/user2.png'),
+    require('../../assets/images/user3.png'),
+    require('../../assets/images/user4.png'),
+  ];
   return (
     <View className="mb-4 bg-white rounded-2xl w-full h-40 flex flex-row border-[#BDBDBD] border">
       <Image
@@ -19,7 +25,7 @@ const HangoutCard: React.FC = () => {
             <LocationSVG /> Cafe Lilliput, Vado
           </Text>
           <View className="flex-row items-center space-x-2">
-            <Avatars users={[1, 2, 3]} />
+            <Avatars users={userImages} size={20} />
             <Text className="text-xs text-black">76/234 joined</Text>
           </View>
         </View>
