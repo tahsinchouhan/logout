@@ -21,7 +21,9 @@ import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/Pr
 import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
 import ProfessionalHangoutThirdScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutThirdScreen';
 import AboutScreen from './app/screens/DashboardScreens/AboutScreen';
+import AddFriendScreen from './app/screens/DashboardScreens/AddFriendScreen';
 import FaqScreen from './app/screens/DashboardScreens/FaqScreen';
+import FriendsScreen from './app/screens/DashboardScreens/FriendsScreen';
 import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
 import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
 import Home from './app/screens/Home';
@@ -190,6 +192,22 @@ function DashboardScreens() {
         component={FaqScreen}
         options={{
           headerTitle: 'FAQ',
+        }}
+      />
+      <Stack.Screen
+        name="FriendsScreen"
+        component={FriendsScreen}
+        options={{
+          headerTitle: 'Friends',
+          headerShadowVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name="AddFriendScreen"
+        component={AddFriendScreen}
+        options={{
+          headerTitle: 'Add friends',
+          headerShadowVisible: false,
         }}
       />
     </Stack.Navigator>

@@ -62,7 +62,7 @@ const MyDashboard = () => {
       </View>
       <View className="border-t border-gray-400 pt-5 mt-5">
         <MyDashboardCard name="Hangout tickets" icon="ticket" root="DashboardScreens" screen="UserHangoutTickets" />
-        <MyDashboardCard name="Friends" icon="friends" root="DashboardScreens" screen="UserHangoutTickets" />
+        <MyDashboardCard name="Friends" icon="friends" root="DashboardScreens" screen="FriendsScreen" />
         <MyDashboardCard name="Settings" icon="settings" root="DashboardScreens" screen="UserHangoutTickets" />
         <MyDashboardCard name="About" icon="about" root="DashboardScreens" screen="AboutScreen" />
         <MyDashboardCard name="FAQ" icon="faq" root="DashboardScreens" screen="FaqScreen" />
