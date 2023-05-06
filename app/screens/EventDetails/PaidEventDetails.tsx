@@ -14,9 +14,11 @@ import {
 import { Avatars } from '../../components/Avatars';
 import EventDetailsTabs from '../../components/EventDetailsScreen/EventDetailsTabs';
 import EventPaymentModal from '../../components/EventDetailsScreen/EventPaymentModal';
+import ReviewSubmitModal from '../../components/EventDetailsScreen/ReviewSubmitModal';
 const PaidEventDetails = () => {
   const [step, setStep] = React.useState(0);
   const [modalVisible, setModalVisible] = React.useState(false);
+  const [reviewModalVisible, setReviewModalVisible] = React.useState(false);
   const navigation = useNavigation();
   const userImages = [
     require('../../assets/images/user1.png'),
@@ -234,8 +236,9 @@ const PaidEventDetails = () => {
             </View>
             <View className="w-1/2 ">
               <Pressable
-              // onPress={() => navigation.navigate(root, {screen: screen})}
-              >
+                onPress={() => {
+                  setReviewModalVisible(true);
+                }}>
                 <View className="bg-[#169D44] border border-black rounded-3xl flex flex-row justify-center items-center w-[90%] h-12 mx-auto">
                   <TickRightSVG />
                   <Text className="text-white font-bold text-sm ml-2">
@@ -266,6 +269,24 @@ const PaidEventDetails = () => {
             setStep={setStep}
             setModalVisible={setModalVisible}
           />
+        </Modal>
+      </GestureRecognizer>
+      <GestureRecognizer
+        style={{
+          flex: modalVisible ? 1 : 0,
+        }}
+        onSwipeDown={() => {
+          setModalVisible(false);
+        }}
+        className="">
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={reviewModalVisible}
+          onRequestClose={() => {
+            setReviewModalVisible(false);
+          }}>
+          <ReviewSubmitModal setModalVisible={setReviewModalVisible} />
         </Modal>
       </GestureRecognizer>
     </View>
