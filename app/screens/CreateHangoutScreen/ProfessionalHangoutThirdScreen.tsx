@@ -87,7 +87,7 @@ const ProfessionalHangoutThirdScreen = () => {
               </View> */}
               <View className="flex flex-wrap flex-row w-full">
                 {inclusionData.map((item, index) => (
-                  <InclusionItem key={index} Data={item} />
+                  <InclusionItem key={index} Data={item} borderAllow={true} />
                 ))}
               </View>
             </View>

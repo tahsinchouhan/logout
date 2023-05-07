@@ -1,12 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 import { AttandanceSVG, RightArrowSVG } from '../../assets/Icons';
 import MyDashboardCard from '../../components/Dashboard/MyDashboardCard';
-
 const MyDashboard = () => {
+  const navigation = useNavigation();
   return (
     <View className="px-4 py-6">
-      <View className="bg-white h-20 mb-4 rounded-2xl px-6 flex flex-row items-center w-full border border-gray-200">
+      <Pressable
+        onPress={() =>
+          navigation.navigate('UserProfileScreens', {
+            screen: 'UserProfileScreen',
+          })
+        }
+        className="bg-white h-20 mb-4 rounded-2xl px-6 flex flex-row items-center w-full border border-gray-200">
         <View className="w-[10%]">
           <Image
             className="w-10 h-10 rounded-full"
@@ -24,7 +31,7 @@ const MyDashboard = () => {
             <RightArrowSVG />
           </Text>
         </View>
-      </View>
+      </Pressable>
       <View className="flex flex-row justify-evenly">
         <View className="w-[30%] px-1 flex items-center justify-center my-4">
           <Text className="text-primarygray text-xs font-semibold">
@@ -61,12 +68,42 @@ const MyDashboard = () => {
         </View>
       </View>
       <View className="border-t border-gray-400 pt-5 mt-5">
-        <MyDashboardCard name="Hangout tickets" icon="ticket" root="DashboardScreens" screen="UserHangoutTickets" />
-        <MyDashboardCard name="Friends" icon="friends" root="DashboardScreens" screen="FriendsScreen" />
-        <MyDashboardCard name="Settings" icon="settings" root="DashboardScreens" screen="UserHangoutTickets" />
-        <MyDashboardCard name="About" icon="about" root="DashboardScreens" screen="AboutScreen" />
-        <MyDashboardCard name="FAQ" icon="faq" root="DashboardScreens" screen="FaqScreen" />
-        <MyDashboardCard name="Help & Support" icon="support" root="DashboardScreens" screen="UserHangoutTickets" />
+        <MyDashboardCard
+          name="Hangout tickets"
+          icon="ticket"
+          root="DashboardScreens"
+          screen="UserHangoutTickets"
+        />
+        <MyDashboardCard
+          name="Friends"
+          icon="friends"
+          root="DashboardScreens"
+          screen="FriendsScreen"
+        />
+        <MyDashboardCard
+          name="Settings"
+          icon="settings"
+          root="DashboardScreens"
+          screen="UserHangoutTickets"
+        />
+        <MyDashboardCard
+          name="About"
+          icon="about"
+          root="DashboardScreens"
+          screen="AboutScreen"
+        />
+        <MyDashboardCard
+          name="FAQ"
+          icon="faq"
+          root="DashboardScreens"
+          screen="FaqScreen"
+        />
+        <MyDashboardCard
+          name="Help & Support"
+          icon="support"
+          root="DashboardScreens"
+          screen="UserHangoutTickets"
+        />
       </View>
     </View>
   );

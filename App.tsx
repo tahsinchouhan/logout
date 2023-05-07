@@ -40,6 +40,8 @@ import SecondOnBoarding from './app/screens/OnBoardingScreens/SecondOnBoarding';
 import ThirdOnBoarding from './app/screens/OnBoardingScreens/ThirdOnBoarding';
 import SignupScreen from './app/screens/Signup/SignupScreen';
 import UserIntrestScreen from './app/screens/Signup/UserIntrestScreen';
+import EditProfileScreen from './app/screens/UserProfileScreens/EditProfileScreen';
+import UserProfileScreen from './app/screens/UserProfileScreens/UserProfileScreen';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const SwipeTab = createMaterialTopTabNavigator();
@@ -226,6 +228,21 @@ function EventDetailsScreens() {
     </Stack.Navigator>
   );
 }
+function UserProfileScreens() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
+      <Stack.Screen options={{
+        headerShown: true,
+        headerTitle: 'Edit Profile',
+        headerShadowVisible: false,
+      }} name="EditProfileScreen" component={EditProfileScreen} />
+    </Stack.Navigator>
+  );
+}
 
 function App(): JSX.Element {
   return (
@@ -290,6 +307,13 @@ function App(): JSX.Element {
             headerShown: false,
           }}
           component={EventDetailsScreens}
+        />
+        <Stack.Screen
+          name="UserProfileScreens"
+          options={{
+            headerShown: false,
+          }}
+          component={UserProfileScreens}
         />
       </Stack.Navigator>
     </NavigationContainer>

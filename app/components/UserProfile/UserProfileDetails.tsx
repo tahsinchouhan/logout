@@ -1,73 +1,35 @@
 import * as React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { SceneMap, TabView } from 'react-native-tab-view';
-import EventDetailsAbout from './EventDetailsAbout';
-import EventPeopleCard from './EventPeopleCard';
+import UserDetailsAbout from './UserDetailsAbout';
+import UserDetailsHangouts from './UserDetailsHangouts';
+import UserDetailsReview from './UserDetailsReview';
+// import EventPeopleCard from './EventPeopleCard';
 
 const FirstRoute = () => (
   <View style={[styles.container]}>
-    <EventDetailsAbout />
+    <UserDetailsAbout />
   </View>
 );
 const SecondRoute = () => (
   <View style={[styles.container]}>
-    <View className="flex flex-row justify-evenly my-2"></View>
-    <View className="px-4 pt-8"></View>
+    <UserDetailsHangouts />
   </View>
 );
 const ThirdRoute = () => (
   <View style={[styles.container]}>
-    <View className="flex flex-row justify-evenly my-2"></View>
-    <View className="px-4 pt-8"></View>
+    <UserDetailsReview />
   </View>
 );
 
-const FourthRoute = () => (
-  <View className="h-full bg-white">
-    <View className="flex flex-row m-4 bg-white">
-      <Text className="space-x-2">
-        <Text className="text-black font-semibold pr-1">24/50 people</Text>
-        <Text className="text-black pl-1"> participated in the event</Text>
-      </Text>
-    </View>
-    <View className=" pt-8 px-4">
-      <EventPeopleCard
-        image={require('../../assets/images/user1.png')}
-        name="Peter Theil"
-        text="Pensilvalia, California"
-        rating="4.3"
-      />
-      <EventPeopleCard
-        image={require('../../assets/images/user2.png')}
-        name="Samson Taylor"
-        text="Huston, Jamaica"
-        rating="3.9"
-      />
-      <EventPeopleCard
-        image={require('../../assets/images/user1.png')}
-        name="Peter Theil"
-        text="Pensilvalia, California"
-        rating="4.3"
-      />
-      <EventPeopleCard
-        image={require('../../assets/images/user2.png')}
-        name="Samson Taylor"
-        text="Huston, Jamaica"
-        rating="3.9"
-      />
-    </View>
-  </View>
-);
-
-export default class EventDetailsTabs extends React.Component {
+export default class UserProfileDetails extends React.Component {
   state = {
     index: 0,
     routes: [
       {key: 'first', title: 'About'},
-      {key: 'second', title: 'Reviews'},
-      {key: 'third', title: 'Updates'},
-      {key: 'fourth', title: 'People'},
+      {key: 'second', title: 'Hangouts'},
+      {key: 'third', title: 'Review'},
     ],
   };
 
@@ -109,7 +71,6 @@ export default class EventDetailsTabs extends React.Component {
     first: FirstRoute,
     second: SecondRoute,
     third: ThirdRoute,
-    fourth: FourthRoute,
   });
 
   render() {
