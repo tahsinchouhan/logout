@@ -235,11 +235,15 @@ function UserProfileScreens() {
         headerShown: false,
       }}>
       <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} />
-      <Stack.Screen options={{
-        headerShown: true,
-        headerTitle: 'Edit Profile',
-        headerShadowVisible: false,
-      }} name="EditProfileScreen" component={EditProfileScreen} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTitle: 'Edit Profile',
+          headerShadowVisible: false,
+        }}
+        name="EditProfileScreen"
+        component={EditProfileScreen}
+      />
     </Stack.Navigator>
   );
 }
@@ -251,13 +255,13 @@ function App(): JSX.Element {
         screenOptions={{
           headerShadowVisible: false,
         }}>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="HomeTabs"
           options={{
             headerShown: false,
           }}
           component={HomeTabs}
-        />
+        /> */}
         <Stack.Screen
           name="OnboardingScreens"
           options={{
@@ -279,13 +283,13 @@ function App(): JSX.Element {
           }}
           component={SignUpScreens}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="HomeTabs"
           options={{
             headerShown: false,
           }}
           component={HomeTabs}
-        /> */}
+        />
         <Stack.Screen
           name="CreateHangoutScreens"
           options={{

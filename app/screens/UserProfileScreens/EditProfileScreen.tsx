@@ -1,14 +1,18 @@
 import * as React from 'react';
 import {
-    Dimensions,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 import AboutTab from '../../components/EditProfile/AboutTab';
+import CareerTab from '../../components/EditProfile/CareerTab';
+import CantactsTab from '../../components/EditProfile/ContactsTab';
+import EducationTab from '../../components/EditProfile/EducationTab';
+import SocialMediaTab from '../../components/EditProfile/SocialMediaTab';
 const data = [1, 2, 3];
 
 const FirstRoute = () => (
@@ -18,7 +22,24 @@ const FirstRoute = () => (
 );
 const SecondRoute = () => (
   <View style={[styles.container]}>
-    <Text>screen2</Text>
+    <CareerTab />
+  </View>
+);
+
+const ThirdRoute = () => (
+  <View style={[styles.container]}>
+    <EducationTab />
+  </View>
+);
+const FourthRoute = () => (
+  <View style={[styles.container]}>
+    <CantactsTab />
+  </View>
+);
+
+const FifthRoute = () => (
+  <View style={[styles.container]}>
+    <SocialMediaTab />
   </View>
 );
 
@@ -79,9 +100,9 @@ export default class EditProfileScreen extends React.Component {
   _renderScene = SceneMap({
     first: FirstRoute,
     second: SecondRoute,
-    third: SecondRoute,
-    fourth: SecondRoute,
-    fifth: SecondRoute,
+    third: ThirdRoute,
+    fourth: FourthRoute,
+    fifth: FifthRoute,
     sixth: SecondRoute,
     seventh: SecondRoute,
     eighth: SecondRoute,
@@ -103,7 +124,7 @@ export default class EditProfileScreen extends React.Component {
             style={{
               backgroundColor: 'white',
             }}
-            renderLabel={({route, color, focused}) => (
+            renderLabel={({route, focused}) => (
               <Text
                 style={{
                   color: focused ? 'black' : 'grey',
