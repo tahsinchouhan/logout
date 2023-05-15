@@ -62,16 +62,20 @@ const ProfessionalHangoutFourthScreen = () => {
                 <Text className="text-base text-black">Couple</Text>
               </View>
               <View className="flex flex-row space-x-2 w-[32%]">
-                <Pressable className="border border-black w-7 h-7 rounded-full flex items-center justify-center">
+                <Pressable
+                  onPress={() => setCoupleCount(coupleCount + 1)}
+                  className="border border-black w-7 h-7 rounded-full flex items-center justify-center">
                   <Text className="text-base text-black">+</Text>
                 </Pressable>
-                <Text className="text-black text-base">10</Text>
-                <Pressable className="border border-black w-7 h-7 rounded-full flex items-center justify-center">
+                <Text className="text-black text-base">{coupleCount}</Text>
+                <Pressable
+                  onPress={() => setCoupleCount(coupleCount - 1)}
+                  className="border border-black w-7 h-7 rounded-full flex items-center justify-center">
                   <Text className="text-base text-black">-</Text>
                 </Pressable>
               </View>
               <View className="w-[32%] flex items-end">
-                <View className="px-5 bg-gray-300 rounded-2xl py-1 w-20">
+                <View className="px-5 bg-gray-300 rounded-2xl py-1  w-20">
                   <Text className="text-base text-black font-semibold">
                     $300
                   </Text>
