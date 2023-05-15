@@ -1,7 +1,7 @@
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import {
   CalanderSVG,
@@ -24,7 +24,7 @@ const CreateCasualHangout = () => {
   const [endTimeText, setEndTimeText] = useState('End time');
 
   return (
-    <View className="bg-white h-full px-4 pt-6 ">
+    <ScrollView className="bg-white h-full px-4 pt-6 ">
       <View className="flex flex-row justify-between">
         <View className="flex flex-row items-center space-x-4">
           <Pressable onPress={() => navigation.goBack()}>
@@ -192,7 +192,7 @@ const CreateCasualHangout = () => {
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

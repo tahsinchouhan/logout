@@ -18,6 +18,7 @@ import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualH
 import CreateCasualHangoutSecond from './app/screens/CreateHangoutScreen/CreateCasualHangoutSecond';
 import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
 import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFirstScreen';
+import ProfessionalHangoutFourthScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFourthScreen';
 import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
 import ProfessionalHangoutThirdScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutThirdScreen';
 import AboutScreen from './app/screens/DashboardScreens/AboutScreen';
@@ -30,7 +31,9 @@ import FreeEventDetails from './app/screens/EventDetails/FreeEventDetails';
 import PaidEventDetails from './app/screens/EventDetails/PaidEventDetails';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
+import EventFilterScreen from './app/screens/Home/EventFilterScreen';
 import MyHangoutsScreen from './app/screens/Home/MyHangoutsScreen';
+import RecommendedHangOutsScreen from './app/screens/Home/RecommendedHangoutScreen';
 import EnterOtpScreen from './app/screens/Login/EnterOtpScreen';
 import LoginScreen from './app/screens/Login/LoginScreen';
 import SendOtpScreen from './app/screens/Login/SendOtpScreen';
@@ -135,7 +138,9 @@ function CreateHangoutScreens() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+      initialRouteName={'ProfessionalHangoutFirstScreen'}
+      >
       <Stack.Screen
         name="CreateCasualHangout"
         component={CreateCasualHangout}
@@ -161,6 +166,15 @@ function CreateHangoutScreens() {
         name="ProfessionalHangoutThirdScreen"
         component={ProfessionalHangoutThirdScreen}
       />
+      <Stack.Screen
+        name="ProfessionalHangoutFourthScreen"
+        component={ProfessionalHangoutFourthScreen}
+      />
+      <Stack.Screen
+        name="RecommendedHangOutsScreen"
+        component={RecommendedHangOutsScreen}
+      />
+      <Stack.Screen name="EventFilterScreen" component={EventFilterScreen} />
     </Stack.Navigator>
   );
 }
@@ -252,6 +266,7 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="CreateHangoutScreens"
         screenOptions={{
           headerShadowVisible: false,
         }}>

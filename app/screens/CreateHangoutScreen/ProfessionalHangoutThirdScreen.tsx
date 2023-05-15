@@ -112,7 +112,7 @@ const ProfessionalHangoutThirdScreen = () => {
       </View>
       <View className="-mx-4">
         <NavigationButton
-          screen="ProfessionalHangoutThirdScreen"
+          screen="ProfessionalHangoutFourthScreen"
           text="Next"
           root="CreateHangoutScreens"
         />

@@ -59,7 +59,7 @@ const CreateHangoutDrawer = () => {
                 <Text className="text-[22px] font-bold text-black py-4">
                   Create Hangout
                 </Text>
-                <View className="flex flex-row justify-between w-full mt-6">
+                <View className="flex flex-row justify-between w-full mt-6 space-x-4">
                   <Pressable
                     onPress={() => {
                       navigation.navigate( "CreateHangoutScreens",{screen:'CreateCasualHangout'});
@@ -117,7 +117,5 @@ const styles = StyleSheet.create({
     paddingVertical: 23,
     paddingHorizontal: 25,
     bottom: 0,
-    borderWidth: 1,
-    borderColor: 'red',
   },
 });

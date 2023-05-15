@@ -12,6 +12,7 @@ import AboutTab from '../../components/EditProfile/AboutTab';
 import CareerTab from '../../components/EditProfile/CareerTab';
 import CantactsTab from '../../components/EditProfile/ContactsTab';
 import EducationTab from '../../components/EditProfile/EducationTab';
+import NGOTab from '../../components/EditProfile/NgoTab';
 import SocialMediaTab from '../../components/EditProfile/SocialMediaTab';
 const data = [1, 2, 3];
 
@@ -40,6 +41,11 @@ const FourthRoute = () => (
 const FifthRoute = () => (
   <View style={[styles.container]}>
     <SocialMediaTab />
+  </View>
+);
+const SeventhRoute = () => (
+  <View style={[styles.container]}>
+    <NGOTab />
   </View>
 );
 
@@ -103,8 +109,8 @@ export default class EditProfileScreen extends React.Component {
     third: ThirdRoute,
     fourth: FourthRoute,
     fifth: FifthRoute,
-    sixth: SecondRoute,
-    seventh: SecondRoute,
+    sixth: SeventhRoute,
+    seventh: SeventhRoute,
     eighth: SecondRoute,
   });
 
