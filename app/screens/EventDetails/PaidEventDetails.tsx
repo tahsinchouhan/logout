@@ -3,15 +3,15 @@ import React from 'react';
 import { Image, Modal, Pressable, ScrollView, Text, View } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import {
-    CalanderSVG,
-    LocationSVG,
-    MessageSVG,
-    NewLocationSVG,
-    PaidEntrySVG,
-    StarSvg,
-    TickRightSVG,
+  CalanderSVG,
+  LocationSVG,
+  MessageSVG,
+  NewLocationSVG,
+  PaidEntrySVG,
+  StarSvg,
+  TickRightSVG,
 } from '../../assets/Icons';
-import { Avatars } from '../../components/Avatars';
+import {Avatars} from '../../components/Avatars';
 import EventDetailsTabs from '../../components/EventDetailsScreen/EventDetailsTabs';
 import EventPaymentModal from '../../components/EventDetailsScreen/EventPaymentModal';
 import ReviewSubmitModal from '../../components/EventDetailsScreen/ReviewSubmitModal';
@@ -237,7 +237,8 @@ const PaidEventDetails = () => {
             <View className="w-1/2 ">
               <Pressable
                 onPress={() => {
-                  setReviewModalVisible(true);
+                  // setReviewModalVisible(true);
+                  navigation.navigate('ArrivedEventDetails');
                 }}>
                 <View className="bg-[#169D44] border border-black rounded-3xl flex flex-row justify-center items-center w-[90%] h-12 mx-auto">
                   <TickRightSVG />

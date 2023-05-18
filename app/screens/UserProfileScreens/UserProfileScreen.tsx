@@ -1,10 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Image, Pressable, ScrollView, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {Image, Modal, Pressable, ScrollView, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { AttandanceSVG, PenSVG, ProfileBannerSVG } from '../../assets/Icons';
-import { Avatars } from '../../components/Avatars';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import {AttandanceSVG, PenSVG, ProfileBannerSVG} from '../../assets/Icons';
+import {Avatars} from '../../components/Avatars';
 import UserProfileDetails from '../../components/UserProfile/UserProfileDetails';
+import UserRatingDrawer from '../../components/UserProfile/UserRatingDrawer';
+
 const UserProfileScreen = () => {
   const navigation = useNavigation();
 
@@ -14,6 +17,15 @@ const UserProfileScreen = () => {
     require('../../assets/images/user3.png'),
     require('../../assets/images/user4.png'),
   ];
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+
+  const handleOpenBottomSheet = () => {
+    setIsBottomSheetOpen(true);
+  };
+
+  const handleCloseBottomSheet = () => {
+    setIsBottomSheetOpen(false);
+  };
   return (
     <View>
       <ScrollView className="h-full relative">
@@ -72,7 +84,9 @@ const UserProfileScreen = () => {
               </View>
 
               <View className="flex flex-row justify-evenly mt-8">
-                <View className="w-[31%] px-1 flex items-center justify-center my-4">
+                <Pressable
+                  onPress={handleOpenBottomSheet}
+                  className="w-[31%] px-1 flex items-center justify-center my-4">
                   <Text className="text-black text-xs font-semibold">
                     Host rating
                   </Text>
@@ -85,7 +99,7 @@ const UserProfileScreen = () => {
                       4.0
                     </Text>
                   </View>
-                </View>
+                </Pressable>
                 <View className="w-[33%] border-l  border-gray-300 px-1 border-r flex items-center justify-center my-4">
                   <Text className="text-black text-xs font-semibold">
                     Participant rating
@@ -126,21 +140,24 @@ const UserProfileScreen = () => {
           </View>
         </View>
       </ScrollView>
-      {/* <View className="bg-white w-full absolute bottom-0 h-24 border-t-2 border-gray-300 flex flex-row justify-between items-center px-4">
-        <View>
-          <Text className="text-[#27AE60] text-lg font-semibold">Free</Text>
-          <Text className="font-medium text-primarygray">20 Seats Left</Text>
-        </View>
-        <Pressable
-          onPress={() => {
-            navigation.navigate('EventDetailsScreens', {
-              screen: 'PaidEventDetails',
-            });
+      <View>
+        <GestureRecognizer
+          style={{
+            flex: isBottomSheetOpen ? 1 : 0,
           }}
-          className="w-[40%] bg-black rounded-[100px] h-12 flex items-center justify-center">
-          <Text className="font-bold text-white">Request Invite</Text>
-        </Pressable>
-      </View> */}
+          onSwipeDown={() => {
+            setIsBottomSheetOpen(false);
+          }}
+          className="">
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={isBottomSheetOpen}
+            onRequestClose={handleCloseBottomSheet}>
+            <UserRatingDrawer setIsBottomSheetOpen={setIsBottomSheetOpen} />
+          </Modal>
+        </GestureRecognizer>
+      </View>
     </View>
   );
 };

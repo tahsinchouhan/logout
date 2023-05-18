@@ -183,7 +183,7 @@ const CreateCasualHangout = () => {
             <Text className="text-center text-black">Add location</Text>
           </View>
 
-          <View className="mt-6 ">
+          <View className="mt-6 -mx-4 ">
             <NavigationButton
               text="Next"
               screen="HangoutLocation"

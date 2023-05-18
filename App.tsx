@@ -10,13 +10,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { View } from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import TabBar from './app/components/tabBar';
 import MessagesScreen from './app/screens/ChatScreens/MessagesScreen';
 import AddBankAccountScreen from './app/screens/CreateHangoutScreen/AddBankAccountScreen';
 import CreateCasualHangout from './app/screens/CreateHangoutScreen/CreateCasualHangout';
 import CreateCasualHangoutSecond from './app/screens/CreateHangoutScreen/CreateCasualHangoutSecond';
 import HangoutLocation from './app/screens/CreateHangoutScreen/HangoutLocation';
+import ProfessionalHangoutFifthScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFifthScreen';
 import ProfessionalHangoutFirstScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFirstScreen';
 import ProfessionalHangoutFourthScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutFourthScreen';
 import ProfessionalHangoutSecondScreen from './app/screens/CreateHangoutScreen/ProfessionalHangoutSecondScreen';
@@ -27,8 +28,9 @@ import FaqScreen from './app/screens/DashboardScreens/FaqScreen';
 import FriendsScreen from './app/screens/DashboardScreens/FriendsScreen';
 import MyDashboard from './app/screens/DashboardScreens/MyDashboard';
 import UserHangoutTickets from './app/screens/DashboardScreens/UserHangoutTickets';
-import FreeEventDetails from './app/screens/EventDetails/FreeEventDetails';
+import ArrivedEventDetails from './app/screens/EventDetails/ArrivedEventDetails';
 import PaidEventDetails from './app/screens/EventDetails/PaidEventDetails';
+import SelfEventDetails from './app/screens/EventDetails/SelfEventDetails';
 import Home from './app/screens/Home';
 import Chats from './app/screens/Home/Chats';
 import EventFilterScreen from './app/screens/Home/EventFilterScreen';
@@ -139,8 +141,7 @@ function CreateHangoutScreens() {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={'ProfessionalHangoutFirstScreen'}
-      >
+      initialRouteName={'ProfessionalHangoutFirstScreen'}>
       <Stack.Screen
         name="CreateCasualHangout"
         component={CreateCasualHangout}
@@ -169,6 +170,10 @@ function CreateHangoutScreens() {
       <Stack.Screen
         name="ProfessionalHangoutFourthScreen"
         component={ProfessionalHangoutFourthScreen}
+      />
+      <Stack.Screen
+        name="ProfessionalHangoutFifthScreen"
+        component={ProfessionalHangoutFifthScreen}
       />
       <Stack.Screen
         name="RecommendedHangOutsScreen"
@@ -237,8 +242,12 @@ function EventDetailsScreens() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="FreeEventDetails" component={FreeEventDetails} />
+      <Stack.Screen name="FreeEventDetails" component={SelfEventDetails} />
       <Stack.Screen name="PaidEventDetails" component={PaidEventDetails} />
+      <Stack.Screen
+        name="ArrivedEventDetails"
+        component={ArrivedEventDetails}
+      />
     </Stack.Navigator>
   );
 }
@@ -264,78 +273,73 @@ function UserProfileScreens() {
 
 function App(): JSX.Element {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="CreateHangoutScreens"
-        screenOptions={{
-          headerShadowVisible: false,
-        }}>
-        {/* <Stack.Screen
-          name="HomeTabs"
-          options={{
-            headerShown: false,
-          }}
-          component={HomeTabs}
-        /> */}
-        <Stack.Screen
-          name="OnboardingScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={OnboardingScreens}
-        />
-        <Stack.Screen
-          name="LoginScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={LoginScreens}
-        />
-        <Stack.Screen
-          name="SignUpScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={SignUpScreens}
-        />
-        <Stack.Screen
-          name="HomeTabs"
-          options={{
-            headerShown: false,
-          }}
-          component={HomeTabs}
-        />
-        <Stack.Screen
-          name="CreateHangoutScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={CreateHangoutScreens}
-        />
-        <Stack.Screen
-          options={{
-            headerShown: false,
-            animation: 'slide_from_right',
-          }}
-          name="DashboardScreens"
-          component={DashboardScreens}
-        />
-        <Stack.Screen
-          name="EventDetailsScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={EventDetailsScreens}
-        />
-        <Stack.Screen
-          name="UserProfileScreens"
-          options={{
-            headerShown: false,
-          }}
-          component={UserProfileScreens}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+        <Stack.Navigator
+          // initialRouteName="UserProfileScreens"
+          screenOptions={{
+            headerShadowVisible: false,
+          }}>
+          <Stack.Screen
+            name="OnboardingScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={OnboardingScreens}
+          />
+          <Stack.Screen
+            name="LoginScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={LoginScreens}
+          />
+          <Stack.Screen
+            name="SignUpScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={SignUpScreens}
+          />
+          <Stack.Screen
+            name="HomeTabs"
+            options={{
+              headerShown: false,
+            }}
+            component={HomeTabs}
+          />
+          <Stack.Screen
+            name="CreateHangoutScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={CreateHangoutScreens}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: false,
+              animation: 'slide_from_right',
+            }}
+            name="DashboardScreens"
+            component={DashboardScreens}
+          />
+          <Stack.Screen
+            name="EventDetailsScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={EventDetailsScreens}
+          />
+          <Stack.Screen
+            name="UserProfileScreens"
+            options={{
+              headerShown: false,
+            }}
+            component={UserProfileScreens}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 

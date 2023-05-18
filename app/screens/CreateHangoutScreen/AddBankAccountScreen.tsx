@@ -4,14 +4,15 @@ import React, { useState } from 'react';
 import {
   Modal,
   Pressable,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import { LeftArrowSVG, PenSVG } from '../../assets/Icons';
-import { NavigationButton } from '../../components/Button';
+import {LeftArrowSVG, PenSVG} from '../../assets/Icons';
+import {NavigationButton} from '../../components/Button';
 
 const AddBankAccountScreen = () => {
   const navigation = useNavigation();
@@ -26,7 +27,7 @@ const AddBankAccountScreen = () => {
   };
 
   return (
-    <View className="bg-white h-full px-4 pt-6 ">
+    <ScrollView className="bg-white h-full px-4 pt-6 ">
       <View className="flex flex-row justify-between">
         <View className="flex flex-row items-center space-x-4">
           <Pressable onPress={() => navigation.goBack()}>
@@ -149,7 +150,7 @@ const AddBankAccountScreen = () => {
           </View>
         </Modal>
       </GestureRecognizer>
-    </View>
+    </ScrollView>
   );
 };
 
