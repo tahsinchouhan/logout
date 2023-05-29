@@ -9,8 +9,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
+import Toast from 'react-native-toast-message';
 import TabBar from './app/components/tabBar';
 import MessagesScreen from './app/screens/ChatScreens/MessagesScreen';
 import AddBankAccountScreen from './app/screens/CreateHangoutScreen/AddBankAccountScreen';
@@ -47,6 +49,7 @@ import SignupScreen from './app/screens/Signup/SignupScreen';
 import UserIntrestScreen from './app/screens/Signup/UserIntrestScreen';
 import EditProfileScreen from './app/screens/UserProfileScreens/EditProfileScreen';
 import UserProfileScreen from './app/screens/UserProfileScreens/UserProfileScreen';
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const SwipeTab = createMaterialTopTabNavigator();
@@ -107,8 +110,8 @@ function SignUpScreens() {
         headerShadowVisible: false,
         headerTitle: '',
       }}>
-      <Stack.Screen name="SignUpScreen" component={SignupScreen} />
       <Stack.Screen name="UserIntrestScreen" component={UserIntrestScreen} />
+      <Stack.Screen name="SignUpScreen" component={SignupScreen} />
     </Stack.Navigator>
   );
 }
@@ -272,75 +275,84 @@ function UserProfileScreens() {
 }
 
 function App(): JSX.Element {
+  const queryClient = new QueryClient();
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
-        <Stack.Navigator
-          // initialRouteName="UserProfileScreens"
-          screenOptions={{
-            headerShadowVisible: false,
-          }}>
-          <Stack.Screen
-            name="OnboardingScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={OnboardingScreens}
-          />
-          <Stack.Screen
-            name="LoginScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={LoginScreens}
-          />
-          <Stack.Screen
-            name="SignUpScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={SignUpScreens}
-          />
-          <Stack.Screen
-            name="HomeTabs"
-            options={{
-              headerShown: false,
-            }}
-            component={HomeTabs}
-          />
-          <Stack.Screen
-            name="CreateHangoutScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={CreateHangoutScreens}
-          />
-          <Stack.Screen
-            options={{
-              headerShown: false,
-              animation: 'slide_from_right',
-            }}
-            name="DashboardScreens"
-            component={DashboardScreens}
-          />
-          <Stack.Screen
-            name="EventDetailsScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={EventDetailsScreens}
-          />
-          <Stack.Screen
-            name="UserProfileScreens"
-            options={{
-              headerShown: false,
-            }}
-            component={UserProfileScreens}
-          />
-        </Stack.Navigator>
+        <QueryClientProvider client={queryClient}>
+          <Stack.Navigator
+            // initialRouteName="UserProfileScreens"
+            screenOptions={{
+              headerShadowVisible: false,
+            }}>
+            <Stack.Screen
+              name="OnboardingScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={OnboardingScreens}
+            />
+            <Stack.Screen
+              name="LoginScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={LoginScreens}
+            />
+            <Stack.Screen
+              name="SignUpScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={SignUpScreens}
+            />
+            <Stack.Screen
+              name="HomeTabs"
+              options={{
+                headerShown: false,
+              }}
+              component={HomeTabs}
+            />
+            <Stack.Screen
+              name="CreateHangoutScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={CreateHangoutScreens}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: false,
+                animation: 'slide_from_right',
+              }}
+              name="DashboardScreens"
+              component={DashboardScreens}
+            />
+            <Stack.Screen
+              name="EventDetailsScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={EventDetailsScreens}
+            />
+            <Stack.Screen
+              name="UserProfileScreens"
+              options={{
+                headerShown: false,
+              }}
+              component={UserProfileScreens}
+            />
+          </Stack.Navigator>
+          <Toast />
+        </QueryClientProvider>
       </NavigationContainer>
     </SafeAreaView>
   );
 }
 
 export default App;
+
+
+
+// ./gradlew assembleRelease

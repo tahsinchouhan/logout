@@ -54,7 +54,7 @@ const HangoutCard: React.FC = data => {
             <View className="flex-row items-center space-x-2">
               <Circle>
                 <Image
-                  source={require('../../assets/hangout1.png')}
+                  source={require('../../assets/Home/hangoutone.jpg')}
                   className="w-full h-full rounded-full"
                 />
               </Circle>

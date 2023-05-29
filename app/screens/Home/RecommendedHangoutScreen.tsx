@@ -10,7 +10,7 @@ const RecommendedHangOutsScreen: React.FC = () => {
   const dummyData = [
     {
       id: 1,
-      image: require('../../assets/Home/hangout1.png'),
+      image: require('../../assets/Home/hangoutone.jpg'),
       date: '11 May',
       time: '8:00 PM',
       eventType: 'Free',
@@ -18,7 +18,7 @@ const RecommendedHangOutsScreen: React.FC = () => {
     {
       id: 2,
       price: 100,
-      image: require('../../assets/Home/hangout2.png'),
+      image: require('../../assets/Home/hangouttwo.jpg'),
       date: '03 February',
       time: '10:00 PM',
       eventType: 'Paid',
@@ -26,21 +26,21 @@ const RecommendedHangOutsScreen: React.FC = () => {
     {
       id: 3,
       price: 320,
-      image: require('../../assets/Home/hangout3.png'),
+      image: require('../../assets/Home/hangoutone.jpg'),
       date: '28 December',
       time: '1:00 AM',
       eventType: 'Paid',
     },
     {
       id: 4,
-      image: require('../../assets/Home/hangout1.png'),
+      image: require('../../assets/Home/hangoutone.jpg'),
       date: '11 May',
       time: '8:00 PM',
       eventType: 'Free',
     },
     {
       id: 5,
-      image: require('../../assets/Home/hangout2.png'),
+      image: require('../../assets/Home/hangouttwo.jpg'),
       date: '03 February',
       time: '10:00 PM',
       eventType: 'Free',
@@ -48,7 +48,7 @@ const RecommendedHangOutsScreen: React.FC = () => {
     {
       id: 6,
       price: 240,
-      image: require('../../assets/Home/hangout3.png'),
+      image: require('../../assets/Home/hangouttwo.jpg'),
       date: '28 December',
       time: '1:00 AM',
       eventType: 'Paid',
