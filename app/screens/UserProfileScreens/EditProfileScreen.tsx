@@ -1,3 +1,4 @@
+import {useRoute} from '@react-navigation/native';
 import * as React from 'react';
 import {
   Dimensions,
@@ -7,31 +8,39 @@ import {
   View,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
+import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import AboutTab from '../../components/EditProfile/AboutTab';
 import CareerTab from '../../components/EditProfile/CareerTab';
 import CantactsTab from '../../components/EditProfile/ContactsTab';
 import EducationTab from '../../components/EditProfile/EducationTab';
 import NGOTab from '../../components/EditProfile/NgoTab';
 import SocialMediaTab from '../../components/EditProfile/SocialMediaTab';
-const data = [1, 2, 3];
 
-const FirstRoute = () => (
-  <View style={[styles.container]}>
-    <AboutTab />
-  </View>
-);
-const SecondRoute = () => (
-  <View style={[styles.container]}>
-    <CareerTab />
-  </View>
-);
+const FirstRoute = () => {
+  const route = useRoute();
+  return (
+    <View style={[styles.container]}>
+      <AboutTab userData={route.params?.userData} />
+    </View>
+  );
+};
+const SecondRoute = () => {
+  const route = useRoute();
+  return (
+    <View style={[styles.container]}>
+      <CareerTab userData={route.params?.userData} />
+    </View>
+  );
+};
 
-const ThirdRoute = () => (
-  <View style={[styles.container]}>
-    <EducationTab />
-  </View>
-);
+const ThirdRoute = () => {
+  const route = useRoute();
+  return (
+    <View style={[styles.container]}>
+      <EducationTab userData={route.params?.userData} />
+    </View>
+  );
+};
 const FourthRoute = () => (
   <View style={[styles.container]}>
     <CantactsTab />

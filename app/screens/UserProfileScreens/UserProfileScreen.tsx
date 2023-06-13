@@ -1,4 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
+import {useQuery} from '@tanstack/react-query';
+import axios from 'axios';
 import React, {useState} from 'react';
 import {Image, Modal, Pressable, ScrollView, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,6 +21,7 @@ const UserProfileScreen = () => {
     require('../../assets/images/user4.png'),
   ];
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [userId, setUserId] = useState('' as any);
 
   const handleOpenBottomSheet = () => {
     setIsBottomSheetOpen(true);
@@ -26,6 +30,49 @@ const UserProfileScreen = () => {
   const handleCloseBottomSheet = () => {
     setIsBottomSheetOpen(false);
   };
+
+  const getUserId = async () => {
+    const Id = await AsyncStorage.getItem('userId');
+    setUserId(Id);
+    return Id;
+  };
+
+  React.useEffect(() => {
+    getUserId();
+  }, []);
+
+  const {isLoading, error, data} = useQuery({
+    queryKey: ['userData'],
+    queryFn: () =>
+      axios
+        .get(
+          `https://logout-idnd.onrender.com/profile/{userID}?userId=${userId}`,
+        )
+        .then(res => res.data),
+    enabled: !!userId,
+  });
+
+  if (isLoading) {
+    return (
+      <View className="h-screen w-screen flex items-center justify-center">
+        <Text className="text-xl font-semibold">Loading...</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View>
+        <Text>Error</Text>
+      </View>
+    );
+  }
+
+  const {response} = data;
+  const {generalDetails} = response;
+
+  // console.log('response', response);
+
   return (
     <View>
       <ScrollView className="h-full relative">
@@ -45,7 +92,10 @@ const UserProfileScreen = () => {
             </View>
             <Pressable
               onPress={() => {
-                navigation.navigate('EditProfileScreen');
+                navigation.navigate('EditProfileScreen', {
+                  userId: userId,
+                  userData: response,
+                });
               }}
               className="flex flex-row space-x-2 items-center absolute top-5 right-5">
               <View>
@@ -59,18 +109,21 @@ const UserProfileScreen = () => {
             <View className="bg-white p-4">
               <View className="flex flex-row items-center space-x-2">
                 <Text className="text-xl font-bold text-black mb-2">
-                  James Correya Anderson
+                  {generalDetails?.firstName} {generalDetails?.lastName}
                 </Text>
                 <View className="bg-gray-200"></View>
               </View>
-              <Text className="text-xs text-black/50 mb-3">@jamesanderson</Text>
+              <Text className="text-xs text-black/60 mb-3">
+                @{response?.username}
+              </Text>
 
               <Text className="text-primarygray text-center text-base w-[80%] mx-auto py-4">
                 No matter Wherever you go, remember to go with all your heart.
               </Text>
               <View>
                 <Text className="text-black text-xs text-center">
-                  Chris you are Just two steps away from legacy! 🎉
+                  {generalDetails?.firstName} you are Just two steps away from
+                  legacy! 🎉
                 </Text>
                 <View className="w-[90%] mx-auto rounded-[100px] bg-gray-300 h-6 my-2">
                   <LinearGradient

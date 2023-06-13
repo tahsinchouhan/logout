@@ -3,7 +3,7 @@ import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { AppleSVG, BlankSVG, GoogleSVG } from '../../assets/Icons';
 
-const NavigationButton = ({text, screen,root}) => {
+const NavigationButton = ({text, screen, root}) => {
   const navigation = useNavigation();
   return (
     <Pressable onPress={() => navigation.navigate(root, {screen: screen})}>

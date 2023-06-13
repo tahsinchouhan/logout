@@ -55,7 +55,6 @@ const SignupScreen = () => {
         });
 
         navigateTo({userId: res?.data?.response?._id});
-        return res.data.JSON();
       })
       .catch(err => {
         console.log(err);
